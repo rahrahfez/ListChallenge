@@ -45,6 +45,13 @@ namespace ListChallengeServer
                 app.UseHsts();
             }
 
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "ListChallengeSpa";
+                spa.Options.StartupTimeout = new TimeSpan(0, 5, 0);
+                spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+            });
+
             // app.UseHttpsRedirection();
             app.UseMvc();
         }
