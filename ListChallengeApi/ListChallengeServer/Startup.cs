@@ -43,7 +43,15 @@ namespace ListChallengeServer
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            app.UseCors(config => 
+            {
+                config.AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin()
+                    .AllowCredentials();
+            });
+
+            // app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
