@@ -25,6 +25,10 @@ namespace ListChallengeServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Replace <DbContext> with actual name of context
+            // services.AddDbContext<DbContext>(
+            //     options => options.UseMySql
+            // )
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -41,7 +45,7 @@ namespace ListChallengeServer
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
