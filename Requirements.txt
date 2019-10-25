@@ -21,8 +21,8 @@
 
 Technologies 
 ------------------
-Angular (frontend)
-.NET core (backend)
+Angular 8.2.4 (frontend)
+.NET core 2.2 (backend)
 MySQL (database)
 Docker
 Heroku (web hosting)
