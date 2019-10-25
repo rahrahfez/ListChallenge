@@ -1,0 +1,28 @@
+- Create a tree that creates a group of nodes, with a main (root) node that can have
+  any number of 'factories'
+  
+- Factories can generate a set of random numbers(up to 15), represented as child nodes
+  of their respective factories
+
+- Factories and children should be created through some means of user input(right click,
+  button press, etc) specifying the number of children to generate (up to 15) and the ranges
+  of those children
+
+- Any changes must be displayed immediately without refreshing or polling
+
+- The state of the tree must be persistent; reloading should not undo any state
+
+- Factory child nodes must be REMOVED upon each new generation
+
+- Project should be secure, validate inputs, and protect against injections(no local storage?)
+
+- Hosted on Heroku(Docker)
+
+
+Technologies 
+------------------
+Angular (frontend)
+.NET core (backend)
+MySQL (database)
+Docker
+Heroku (web hosting)
