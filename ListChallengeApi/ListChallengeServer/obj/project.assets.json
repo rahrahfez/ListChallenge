@@ -4474,6 +4474,34 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.2.4",
+          "Microsoft.EntityFrameworkCore.Design": "2.2.4"
+        },
+        "compile": {
+          "bin/placeholder/Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Entities.dll": {}
+        }
+      },
+      "Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "dependencies": {
+          "Entities": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "2.2.4"
+        },
+        "compile": {
+          "bin/placeholder/Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Repository.dll": {}
+        }
       }
     }
   },
@@ -12138,15 +12166,27 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "Entities/1.0.0": {
+      "type": "project",
+      "path": "../Entities/Entities.csproj",
+      "msbuildProject": "../Entities/Entities.csproj"
+    },
+    "Repository/1.0.0": {
+      "type": "project",
+      "path": "../Repository/Repository.csproj",
+      "msbuildProject": "../Repository/Repository.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
+      "Entities >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.EntityFrameworkCore >= 2.2.4",
       "Microsoft.EntityFrameworkCore.Design >= 2.2.4",
       "Microsoft.NETCore.App >= 2.2.0",
-      "Pomelo.EntityFrameworkCore.MySql >= 2.2.0"
+      "Pomelo.EntityFrameworkCore.MySql >= 2.2.0",
+      "Repository >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -12176,7 +12216,14 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\david\\Documents\\Projects\\ListChallenge\\ListChallengeApi\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\david\\Documents\\Projects\\ListChallenge\\ListChallengeApi\\Entities\\Entities.csproj"
+            },
+            "C:\\Users\\david\\Documents\\Projects\\ListChallenge\\ListChallengeApi\\Repository\\Repository.csproj": {
+              "projectPath": "C:\\Users\\david\\Documents\\Projects\\ListChallenge\\ListChallengeApi\\Repository\\Repository.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

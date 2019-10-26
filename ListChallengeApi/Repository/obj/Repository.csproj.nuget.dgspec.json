@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\david\\Documents\\Projects\\ListChallenge\\ListChallengeApi\\ListChallengeServer\\ListChallengeServer.csproj": {}
+    "C:\\Users\\david\\Documents\\Projects\\ListChallenge\\ListChallengeApi\\Repository\\Repository.csproj": {}
   },
   "projects": {
     "C:\\Users\\david\\Documents\\Projects\\ListChallenge\\ListChallengeApi\\Entities\\Entities.csproj": {
@@ -52,81 +52,6 @@
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
-            }
-          },
-          "imports": [
-            "net461"
-          ],
-          "assetTargetFallback": true,
-          "warn": true
-        }
-      }
-    },
-    "C:\\Users\\david\\Documents\\Projects\\ListChallenge\\ListChallengeApi\\ListChallengeServer\\ListChallengeServer.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\david\\Documents\\Projects\\ListChallenge\\ListChallengeApi\\ListChallengeServer\\ListChallengeServer.csproj",
-        "projectName": "ListChallengeServer",
-        "projectPath": "C:\\Users\\david\\Documents\\Projects\\ListChallenge\\ListChallengeApi\\ListChallengeServer\\ListChallengeServer.csproj",
-        "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\david\\Documents\\Projects\\ListChallenge\\ListChallengeApi\\ListChallengeServer\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp2.2"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp2.2": {
-            "projectReferences": {
-              "C:\\Users\\david\\Documents\\Projects\\ListChallenge\\ListChallengeApi\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\david\\Documents\\Projects\\ListChallenge\\ListChallengeApi\\Entities\\Entities.csproj"
-              },
-              "C:\\Users\\david\\Documents\\Projects\\ListChallenge\\ListChallengeApi\\Repository\\Repository.csproj": {
-                "projectPath": "C:\\Users\\david\\Documents\\Projects\\ListChallenge\\ListChallengeApi\\Repository\\Repository.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp2.2": {
-          "dependencies": {
-            "Microsoft.AspNetCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.2.0, )",
-              "autoReferenced": true
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[2.2.4, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "target": "Package",
-              "version": "[2.2.4, )"
-            },
-            "Microsoft.NETCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.2.0, )",
-              "autoReferenced": true
-            },
-            "Pomelo.EntityFrameworkCore.MySql": {
-              "target": "Package",
-              "version": "[2.2.0, )"
             }
           },
           "imports": [
