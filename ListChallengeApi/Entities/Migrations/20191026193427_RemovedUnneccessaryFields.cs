@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ListChallengeServer.Migrations
+namespace Entities.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class RemovedUnneccessaryFields : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -25,17 +25,18 @@ namespace ListChallengeServer.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     RootId = table.Column<Guid>(nullable: false),
                     RangeLow = table.Column<int>(nullable: false),
-                    RangeHigh = table.Column<int>(nullable: false)
+                    RangeHigh = table.Column<int>(nullable: false),
+                    RootTreeModelId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_factory", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_factory_root_RootId",
-                        column: x => x.RootId,
+                        name: "FK_factory_root_RootTreeModelId",
+                        column: x => x.RootTreeModelId,
                         principalTable: "root",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -44,28 +45,29 @@ namespace ListChallengeServer.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     FactoryId = table.Column<Guid>(nullable: false),
-                    Value = table.Column<int>(nullable: false)
+                    Value = table.Column<int>(nullable: false),
+                    FactoryModelId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_child", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_child_factory_FactoryId",
-                        column: x => x.FactoryId,
+                        name: "FK_child_factory_FactoryModelId",
+                        column: x => x.FactoryModelId,
                         principalTable: "factory",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_child_FactoryId",
+                name: "IX_child_FactoryModelId",
                 table: "child",
-                column: "FactoryId");
+                column: "FactoryModelId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_factory_RootId",
+                name: "IX_factory_RootTreeModelId",
                 table: "factory",
-                column: "RootId");
+                column: "RootTreeModelId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

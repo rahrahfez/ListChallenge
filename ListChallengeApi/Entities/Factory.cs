@@ -12,16 +12,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Entities
 {
     [Table("factory")]
-    public class FactoryModel
+    public class Factory
     {
         [Key]
         [Column("Id")]
         public Guid Id { get; set; }
-        [ForeignKey("RootId")]
         public Guid RootId { get; set; }
-        public RootTreeModel Root { get; set; }
         public int RangeLow { get; set; }
         public int RangeHigh { get; set; }
-        public List<ChildModel> Childs { get; set; }
+        public List<Child> Childs { get; set; }
     }
 }

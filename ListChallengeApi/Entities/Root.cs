@@ -11,11 +11,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Entities
 {
     [Table("root")]
-    public class RootTreeModel
+    public class Root
     {
         [Key]
         [Column("Id")]
         public Guid Id { get; set; }
-        public List<FactoryModel> Factories { get; set; }
+        public List<Factory> Factories { get; set; }
     }
 }

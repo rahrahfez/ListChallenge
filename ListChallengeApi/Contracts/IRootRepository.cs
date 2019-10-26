@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Entities;
 
@@ -6,8 +7,8 @@ namespace Contracts
 {
     public interface IRootRepository
     {
-         Task<RootTreeModel> GetRootByIdAsync(Guid id);
-         Task CreateRootAsync(RootTreeModel root);
-         Task DeleteRootAsync(RootTreeModel root);
+         Task<Root> GetRootByIdAsync(Guid id);
+         Task CreateRootAsync(Root root);
+         Task DeleteRootAsync(Root root);
     }
 }

@@ -35,7 +35,7 @@ namespace ListChallengeServer.Controllers
         {
             try
             {
-                var root = new RootTreeModel { Id = Guid.NewGuid() };
+                var root = new Root { Id = Guid.NewGuid() };
 
                 await _repo.Root.CreateRootAsync(root);
 

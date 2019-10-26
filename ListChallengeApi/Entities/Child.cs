@@ -10,14 +10,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Entities
 {
     [Table("child")]
-    public class ChildModel
+    public class Child
     {
         [Key]
         [Column("Id")]
         public Guid Id { get; set; }
-        [ForeignKey("FactoryId")]
         public Guid FactoryId { get; set; }
-        public FactoryModel Factory { get; set; }
         public int Value { get; set; }
     }
 }

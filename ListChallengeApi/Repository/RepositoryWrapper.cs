@@ -7,6 +7,7 @@ namespace Repository
     {
         private readonly RepositoryContext _repoContext;
         private IRootRepository _root;
+        private IFactoryRepository _factory;
         public RepositoryWrapper(RepositoryContext repositoryContext)
         {
             _repoContext = repositoryContext;
@@ -20,6 +21,17 @@ namespace Repository
                     _root = new RootRepository(_repoContext);
                 }
                 return _root;
+            }
+        }
+        public IFactoryRepository Factory
+        {
+            get
+            {
+                if (_factory == null)
+                {
+                    _factory = new FactoryRepository(_repoContext);
+                }
+                return _factory;
             }
         }
         public void Save() {
