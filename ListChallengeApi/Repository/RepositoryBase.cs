@@ -4,10 +4,11 @@ using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using Entities;
+using Contracts;
 
 namespace Repository
 {
-    public class RepositoryBase<T> where T : class
+    public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
         protected RepositoryContext RepositoryContext { get; set; }
         public RepositoryBase(RepositoryContext repositoryContext)
