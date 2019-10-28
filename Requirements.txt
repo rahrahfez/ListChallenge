@@ -8,7 +8,7 @@
   button press, etc) specifying the number of children to generate (up to 15) and the ranges
   of those children
 
-- Any changes must be displayed immediately without refreshing or polling
+- Any changes must be displayed immediately without refreshing or polling(x)
 
 - The state of the tree must be persistent; reloading should not undo any state
 
