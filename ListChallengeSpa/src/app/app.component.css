@@ -1,0 +1,18 @@
+.root-list {
+  max-width: 100%;
+  width: 25vw;
+}
+
+.factory-list {
+  margin-left: 1rem;
+  margin-top: 0;
+}
+
+.value-list {
+  margin-left: 2rem;
+  margin-top: 0;
+}
+
+.create-root-btn {
+  margin-top: 5rem;
+}

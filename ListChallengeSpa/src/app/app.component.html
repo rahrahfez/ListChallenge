@@ -1,0 +1,36 @@
+<mat-list class="root-list">
+	<ng-container *ngIf="(root$ | async) as root">
+    <mat-list-item>root
+      <span><button
+        mat-icon-button
+        (click)="CreateNewNode()">
+        <mat-icon>add</mat-icon></button>
+      </span>
+    </mat-list-item>
+		<mat-list>
+			<div *ngFor="let factory of root$ | async; trackBy: trackFactory; let i=index" class="factory-list">
+        <mat-list-item>
+          {{ factory.label }}
+          (min: {{ factory.rangeLow }} |
+          max: {{ factory.rangeHigh }})
+          <span><button
+            mat-icon-button
+            (click)="GenerateNewValues(factory.id)">
+            <mat-icon>add</mat-icon></button>
+          </span>
+        </mat-list-item>
+        <mat-list>
+          <div *ngFor="let v of factory.childs" class="value-list">
+            <mat-list-item>{{ v.value }}</mat-list-item>
+          </div>
+        </mat-list>
+			</div>
+		</mat-list>
+	</ng-container>
+</mat-list>
+
+<!-- <button
+class="create-root-btn"
+mat-stroked-button
+color="primary"
+(click)="CreateNewNode()">Create Root</button> -->

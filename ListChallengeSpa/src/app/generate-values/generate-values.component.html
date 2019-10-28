@@ -1,0 +1,45 @@
+<form [formGroup]="generateValuesForm" fxFlex fxLayout="column">
+  <h3>Generate New Values:</h3>
+  <div fxLayout="row" fxLayoutGap="15px">
+    <mat-form-field>
+      <input
+        class="value-input-field"
+        matInput
+        type="number"
+        formControlName="MinValue"
+        placeholder="Min"
+        required>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        class="value-input-field"
+        matInput
+        type="number"
+        formControlName="MaxValue"
+        placeholder="Max"
+        required>
+    </mat-form-field>
+  </div>
+  <mat-form-field>
+    <input
+      class="value-input-field"
+      matInput
+      type="number"
+      formControlName="NumberOfValues"
+      placeholder="Number Of Values"
+      required>
+      <mat-hint>Up to 15.</mat-hint>
+  </mat-form-field>
+  <button
+    mat-dialog-close
+    [disabled]="!generateValuesForm.valid"
+    mat-raised-button
+    class="generate-btn"
+    (click)="updateFactory()">Generate</button>
+  <button
+    mat-dialog-close
+    mat-raised-button
+    color="warn"
+    class="delete-factory-btn"
+    (click)="deleteFactory()">Delete Factory</button>
+</form>

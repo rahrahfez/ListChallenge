@@ -1,0 +1,15 @@
+<form [formGroup]="createFactoryForm" fxLayout="column">
+  <h3>Create New Factory:</h3>
+  <mat-form-field>
+    <input matInput formControlName="Label" placeholder="Label" required id="label">
+    <div *ngIf="label.invalid && (label.dirty || label.touched)">
+      <div *ngIf="label.errors.maxLength">Max number of characters is 30.</div>
+      <div *ngIf="label.errors.required">Label is required.</div>
+    </div>
+  </mat-form-field>
+  <button
+    [disabled]="!createFactoryForm.valid"
+    mat-raised-button
+    (click)="onCreateFactory()"
+    mat-dialog-close>Create Factory</button>
+</form>
