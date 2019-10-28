@@ -26,10 +26,10 @@ namespace ListChallengeServer
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // In production, the Angular files will be served from this directory
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "ListChallengeSpa/dist";
-            });
+            // services.AddSpaStaticFiles(configuration =>
+            // {
+            //     configuration.RootPath = "ListChallengeSpa/dist";
+            // });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +56,6 @@ namespace ListChallengeServer
 
             // app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSpaStaticFiles();
             app.UseDefaultFiles();
 
             app.UseMvc(routes =>
