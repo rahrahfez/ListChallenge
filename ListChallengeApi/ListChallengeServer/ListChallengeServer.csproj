@@ -27,9 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Repository\Repository.csproj" />
-    <ProjectReference Include="..\Entities\Entities.csproj" />
-    <ProjectReference Include="..\Contracts\Contracts.csproj" />
+    <ProjectReference Include="..\Repository.csproj" />
+    <ProjectReference Include="..\Entities.csproj" />
+    <ProjectReference Include="..\Contracts.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
