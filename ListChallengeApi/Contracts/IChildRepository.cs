@@ -12,6 +12,7 @@ namespace Contracts
         Task<Child> GetChildByIdAsync(Guid id);
         Task CreateChildAsync(Child child);
         Task CreateChildInBulkAsync(List<Child> childs);
+        Task DeleteAllChildAsync(IEnumerable<Child> child);
         Task DeleteChildAsync(Child child);
     }
 }

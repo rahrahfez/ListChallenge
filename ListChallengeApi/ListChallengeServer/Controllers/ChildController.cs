@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Contracts;
 using Entities;
+using System.Collections.Generic;
 
 namespace ListChallengeServer.Controllers
 {   
@@ -79,6 +80,20 @@ namespace ListChallengeServer.Controllers
                     routeName: "ChildById", 
                     routeValues: new { id = childToBeCreated.Id }, 
                     value: childToBeCreated);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal Server Error { ex.Message }");
+            }
+        }
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAllChildAsync(IEnumerable<Child> child)
+        {
+            try
+            {
+                await _repo.Child.DeleteAllChildAsync(child);
+
+                return NoContent();
             }
             catch (Exception ex)
             {

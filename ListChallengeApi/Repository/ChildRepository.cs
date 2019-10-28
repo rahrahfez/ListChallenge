@@ -42,6 +42,11 @@ namespace Repository
             Create(child);
             await SaveAsync();
         }
+        public async Task DeleteAllChildAsync(IEnumerable<Child> child)
+        {
+            DeleteAll(child);
+            await SaveAsync();
+        }
         public async Task DeleteChildAsync(Child child)
         {
             Delete(child);

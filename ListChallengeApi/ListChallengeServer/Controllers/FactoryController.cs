@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Contracts;
@@ -23,6 +25,12 @@ namespace ListChallengeServer.Controllers
             {
                 var factories = await _repo.Factory.GetAllFactoriesAsync();
 
+                foreach(var factory in factories)
+                {
+                    factory.Childs = 
+                    await _repo.Child.GetAllChildValuesByFactoryIdAsync(factory.Id);
+                }
+
                 return Ok(factories);
             }
             catch (Exception ex)
@@ -42,7 +50,28 @@ namespace ListChallengeServer.Controllers
                     return NotFound();
                 }
 
+                
+
                 return Ok(factory);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal Server Error { ex.Message }");
+            }
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetAllFactoriesByRootIdAsync(Guid id)
+        {
+            try
+            {
+                var factories = await _repo.Factory.GetAllFactoriesByRootId(id);
+
+                if (factories == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(factories);
             }
             catch (Exception ex)
             {

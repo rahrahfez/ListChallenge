@@ -57,6 +57,7 @@ namespace ListChallengeServer
             // app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            app.UseDefaultFiles();
 
             app.UseMvc(routes =>
             {

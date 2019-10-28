@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using Entities;
 using Contracts;
+using System.Collections.Generic;
 
 namespace Repository
 {
@@ -35,6 +36,14 @@ namespace Repository
         public void Delete(T entity)
         {
             this.RepositoryContext.Set<T>().Remove(entity);
+        }
+        public void DeleteAll(IEnumerable<T> entity)
+        {
+            foreach (var e in entity)
+            {
+                this.RepositoryContext.Set<T>().Attach(e);
+                this.RepositoryContext.Set<T>().Remove(e);
+            }
         }
         public async Task SaveAsync()
         {

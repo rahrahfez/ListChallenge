@@ -23,6 +23,6 @@ namespace Entities
         [Column(TypeName = "varchar(30)")]
         [StringLength(30)]
         public string Label { get; set; }
-        public List<Child> Childs { get; set; }
+        public IEnumerable<Child> Childs { get; set; }
     }
 }
