@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Contracts;
 using Entities;
@@ -19,6 +20,11 @@ namespace Repository
       Create(factory);
       await SaveAsync();
     }
+    public async Task UpdateFactoryAsync(Factory factory)
+    {
+      Update(factory);
+      await SaveAsync();
+    }
     public async Task DeleteFactoryAsync(Factory factory)
     {
       Delete(factory);
@@ -27,6 +33,11 @@ namespace Repository
     public async Task<IEnumerable<Factory>> GetAllFactoriesAsync()
     {
       return await FindAll().ToListAsync();
+    }
+    public async Task<IEnumerable<Factory>> GetAllFactoriesByRootId(Guid id)
+    {
+      return await FindAll().Where(factory => factory.RootId.Equals(id))
+        .ToListAsync();
     }
     public async Task<Factory> GetFactoryByIdAsync(Guid id)
     {

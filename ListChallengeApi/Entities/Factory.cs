@@ -20,6 +20,9 @@ namespace Entities
         public Guid RootId { get; set; }
         public int RangeLow { get; set; }
         public int RangeHigh { get; set; }
+        [Column(TypeName = "varchar(30)")]
+        [StringLength(30)]
+        public string Label { get; set; }
         public List<Child> Childs { get; set; }
     }
 }

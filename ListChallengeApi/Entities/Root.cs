@@ -16,6 +16,9 @@ namespace Entities
         [Key]
         [Column("Id")]
         public Guid Id { get; set; }
+        [Column(TypeName = "varchar(30)")]
+        [StringLength(30)]
+        public string Label { get; set; }
         public List<Factory> Factories { get; set; }
     }
 }

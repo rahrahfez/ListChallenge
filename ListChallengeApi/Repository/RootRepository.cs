@@ -15,6 +15,10 @@ namespace Repository
         {
 
         }
+        public async Task<IEnumerable<Root>> GetRootsAsync()
+        {
+            return await FindAll().ToListAsync();
+        }
         public async Task<Root> GetRootByIdAsync(Guid id)
         {
             return await FindByCondition(root => root.Id.Equals(id))

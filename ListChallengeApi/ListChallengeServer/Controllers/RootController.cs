@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +17,47 @@ namespace ListChallengeServer.Controllers
         )
         {
             _repo = repo;
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetAllRootsAsync()
+        {
+            try
+            {
+                var roots = await _repo.Root.GetRootsAsync();
+
+                return Ok(roots);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal Server Error { ex.Message }");
+            }
+        }
+        [HttpGet("{id}/factories")]
+        public async Task<IActionResult> GetRootsWithFactoriesAsync(Guid id)
+        {
+            try
+            {
+                var root = await _repo.Root.GetRootByIdAsync(id);
+
+                if (root == null)
+                {
+                    return NotFound();
+                }
+
+                var factories = await _repo.Factory.GetAllFactoriesByRootId(root.Id);
+
+                var rootWithFactories = new Root {
+                    Id = root.Id,
+                    Label = root.Label,
+                    Factories = factories.ToList()
+                };
+
+                return Ok(rootWithFactories);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal Server Error { ex.Message }");
+            }
         }
         [HttpGet("{id}", Name = "RootById")]
         public async Task<IActionResult> GetRootAsync(Guid id)

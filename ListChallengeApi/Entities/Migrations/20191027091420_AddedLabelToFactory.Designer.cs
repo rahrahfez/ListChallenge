@@ -3,14 +3,16 @@ using System;
 using Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Entities.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20191027091420_AddedLabelToFactory")]
+    partial class AddedLabelToFactory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,9 +42,7 @@ namespace Entities.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnName("Id");
 
-                    b.Property<string>("Label")
-                        .HasColumnType("varchar(30)")
-                        .HasMaxLength(30);
+                    b.Property<string>("Label");
 
                     b.Property<int>("RangeHigh");
 
@@ -62,10 +62,6 @@ namespace Entities.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("Id");
-
-                    b.Property<string>("Label")
-                        .HasColumnType("varchar(30)")
-                        .HasMaxLength(30);
 
                     b.HasKey("Id");
 

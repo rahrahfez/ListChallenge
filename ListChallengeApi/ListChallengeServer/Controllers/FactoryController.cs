@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Contracts;
 using Entities;
+using Newtonsoft.Json;
 
 namespace ListChallengeServer.Controllers
 {
@@ -57,7 +58,8 @@ namespace ListChallengeServer.Controllers
                     Id = Guid.NewGuid(),
                     RootId = factory.RootId,
                     RangeLow = factory.RangeLow,
-                    RangeHigh = factory.RangeHigh
+                    RangeHigh = factory.RangeHigh,
+                    Label = factory.Label
                 };
 
                 await _repo.Factory.CreateFactoryAsync(factoryToBeCreated);
@@ -70,7 +72,25 @@ namespace ListChallengeServer.Controllers
                 return StatusCode(500, $"Internal Server Error { ex.Message }");
             }
         }
-        [HttpDelete]
+        [HttpPost("{id}")]
+        public async Task<IActionResult> UpdateFactoryAsync(Guid id, Factory factory)
+        {
+            try
+            {
+                var factoryToBeUpdated = await _repo.Factory.GetFactoryByIdAsync(id);
+                factoryToBeUpdated.RangeLow = factory.RangeLow;
+                factoryToBeUpdated.RangeHigh = factory.RangeHigh;
+
+                await _repo.Factory.UpdateFactoryAsync(factoryToBeUpdated);
+
+                return Ok(factoryToBeUpdated);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal Server Error { ex.Message }");
+            }
+        }
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteFactoryAsync(Guid id)
         {
             try
