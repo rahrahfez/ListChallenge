@@ -18,3 +18,4 @@ C:\Users\david\Documents\Projects\ListChallenge\ListChallengeApi\ListChallengeSe
 C:\Users\david\Documents\Projects\ListChallenge\ListChallengeApi\ListChallengeServer\Entities\obj\Debug\netcoreapp2.2\Entities.AssemblyInfo.cs
 C:\Users\david\Documents\Projects\ListChallenge\ListChallengeApi\ListChallengeServer\Entities\obj\Debug\netcoreapp2.2\Entities.dll
 C:\Users\david\Documents\Projects\ListChallenge\ListChallengeApi\ListChallengeServer\Entities\obj\Debug\netcoreapp2.2\Entities.pdb
+C:\Users\david\Documents\Projects\ListChallenge\ListChallengeApi\Entities\obj\Debug\netcoreapp2.2\Entities.csprojAssemblyReference.cache
