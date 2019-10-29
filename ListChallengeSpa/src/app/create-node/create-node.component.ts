@@ -34,7 +34,7 @@ export class CreateNodeComponent implements OnInit {
       rangeHigh: 0,
       values: []
     };
-    console.log(factory);
-    this.ldb.CreateFactory(factory).subscribe();
+
+    this.ldb.CreateFactory(factory).subscribe(res => localStorage.setItem('factoryId', res.id));
   }
 }

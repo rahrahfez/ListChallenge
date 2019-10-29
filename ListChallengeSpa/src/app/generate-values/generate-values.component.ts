@@ -26,6 +26,7 @@ export class GenerateValuesComponent implements OnInit, OnDestroy {
   childs$: Subscription;
 
   factoryId: string;
+  factoryLabel: string;
 
   constructor(
     private fb: FormBuilder,
@@ -34,6 +35,7 @@ export class GenerateValuesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.initForm();
+    this.factoryId = localStorage.getItem('factoryId');
   }
 
   initForm() {
@@ -45,12 +47,15 @@ export class GenerateValuesComponent implements OnInit, OnDestroy {
   }
 
   updateFactory() {
+    this.ldb.DeleteFactory(this.factoryId).subscribe((val: string) => this.factoryLabel = val);
+
     const minValue = this.generateValuesForm.controls.MinValue.value;
     const maxValue = this.generateValuesForm.controls.MaxValue.value;
     const numberOfValues = this.generateValuesForm.controls.NumberOfValues.value;
-    this.factoryId = localStorage.getItem('factoryId');
 
     const factory: Factory = {
+      rootId: 'c266a972-2a51-4c06-865c-d4b5b6061544',
+      label: this.factoryLabel,
       id: this.factoryId,
       rangeLow: minValue,
       rangeHigh: maxValue,
@@ -58,10 +63,6 @@ export class GenerateValuesComponent implements OnInit, OnDestroy {
     };
 
     this.ldb.UpdateFactory(factory).subscribe();
-
-    if (factory.values.length > 0) {
-      this.ldb.DeleteAllChild(factory.values);
-    }
 
     const childs: Child[] = this.vgs.generateChildValues(minValue, maxValue, numberOfValues, this.factoryId);
 

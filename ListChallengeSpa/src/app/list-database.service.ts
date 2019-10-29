@@ -10,8 +10,8 @@ import { ValuegeneratorService } from './valuegenerator.service';
   providedIn: 'root'
 })
 export class ListDatabase {
-  // readonly url = 'https://rocky-fortress-44530.herokuapp.com';
-  readonly url = 'https://0.0.0.0:5000/api';
+  readonly url = 'https://listchallengeserver.herokuapp.com/api';
+  // readonly url = 'https://0.0.0.0:5000/api';
 
   constructor(private http: HttpClient) {}
 
