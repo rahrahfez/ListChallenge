@@ -47,21 +47,18 @@ export class GenerateValuesComponent implements OnInit, OnDestroy {
   }
 
   updateFactory() {
-    this.ldb.DeleteFactory(this.factoryId).subscribe((val: string) => this.factoryLabel = val);
 
     const minValue = this.generateValuesForm.controls.MinValue.value;
     const maxValue = this.generateValuesForm.controls.MaxValue.value;
     const numberOfValues = this.generateValuesForm.controls.NumberOfValues.value;
 
     const factory: Factory = {
-      rootId: 'c266a972-2a51-4c06-865c-d4b5b6061544',
-      label: this.factoryLabel,
       id: this.factoryId,
       rangeLow: minValue,
       rangeHigh: maxValue,
       values: []
     };
-
+    this.ldb.DeleteChildByFactoryId(this.factoryId).subscribe();
     this.ldb.UpdateFactory(factory).subscribe();
 
     const childs: Child[] = this.vgs.generateChildValues(minValue, maxValue, numberOfValues, this.factoryId);

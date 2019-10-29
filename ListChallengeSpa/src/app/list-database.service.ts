@@ -11,7 +11,6 @@ import { ValuegeneratorService } from './valuegenerator.service';
 })
 export class ListDatabase {
   readonly url = 'https://listchallengeserver.herokuapp.com/api';
-  // readonly url = 'https://0.0.0.0:5000/api';
 
   constructor(private http: HttpClient) {}
 
@@ -42,7 +41,9 @@ export class ListDatabase {
   DeleteAllChild(child: Child[]) {
     return this.http.delete(this.url + '/child');
   }
-
+  DeleteChildByFactoryId(id: string) {
+    return this.http.delete(this.url + `/${id}`);
+  }
   DeleteFactory(id: string) {
     return this.http.delete(this.url + `/factory/${id}`);
   }

@@ -48,6 +48,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   CreateNewNode() {
     this.createNodeRef = this.dialog.open(CreateNodeComponent);
+    this.createNodeRef.afterClosed().subscribe(() => this.GetList());
   }
 
   GenerateNewValues(factory: string) {
