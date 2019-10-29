@@ -28,7 +28,7 @@ export class CreateNodeComponent implements OnInit {
   onCreateFactory() {
     // Creates a factory with label and default variables.
     const factory: Factory = {
-      rootId: 'afe3c224-c9e7-4410-9a24-0ca0b342f82d',
+      rootId: 'c266a972-2a51-4c06-865c-d4b5b6061544',
       label: this.label,
       rangeLow: 0,
       rangeHigh: 0,
