@@ -42,7 +42,7 @@ export class ListDatabase {
     return this.http.delete(this.url + '/child');
   }
   DeleteChildByFactoryId(id: string) {
-    return this.http.delete(this.url + `/${id}`);
+    return this.http.delete(this.url + `/child/${id}`);
   }
   DeleteFactory(id: string) {
     return this.http.delete(this.url + `/factory/${id}`);
