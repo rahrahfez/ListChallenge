@@ -1,2 +1,4 @@
 **/bin
 **/obj
+/ListChallengeApi/appsettings.json
+/ListChallengeApi/appsettings.development.json

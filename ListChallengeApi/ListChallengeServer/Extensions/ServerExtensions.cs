@@ -12,10 +12,10 @@ namespace ListChallengeServer.ServerExtensions
   {
     public static void ConfigureMySql(this IServiceCollection services, IConfiguration config)
     {
-      var connectionString = config["mysqlconnection:connectionString"];
-      services.AddDbContext<RepositoryContext>(options => {
-        options.UseMySql(connectionString);
-      });
+      // var connectionString = config["mysqlconnection:connectionString"];
+      // services.AddDbContext<RepositoryContext>(options => {
+      //   options.UseMySql(connectionString);
+      // });
     }
     public static void ConfigureRepository(this IServiceCollection services)
     {
